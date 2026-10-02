@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wasim Girnari — Multi-Brand Marketing</title>
+<style>
+:root{--green:#079b61;--green2:#dff8ec;--ink:#16202a;--muted:#71808f;--line:#e6ebef;--bg:#f6f8fa;--card:#fff;--blue:#eaf3ff;--yellow:#fff3d4}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+button{font:inherit;cursor:pointer}.app{display:flex;min-height:100vh}.side{width:220px;background:#fff;border-right:1px solid var(--line);padding:20px 14px;position:sticky;top:0;height:100vh}
+.logo{font-size:19px;font-weight:800;display:flex;gap:8px;align-items:center;margin:4px 8px 24px}.mark{width:28px;height:28px;border-radius:9px;background:var(--green);color:white;display:grid;place-items:center}
+.nav button{width:100%;border:0;background:transparent;text-align:left;padding:12px 13px;border-radius:10px;color:#566574;margin:3px 0}.nav button.active,.nav button:hover{background:var(--green2);color:var(--green);font-weight:700}
+.main{flex:1;padding:24px;max-width:1500px;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px}
+.brandbar{display:flex;gap:8px;flex-wrap:wrap}.brand{border:1px solid var(--line);background:white;padding:9px 14px;border-radius:9px;font-weight:700}.brand.active{background:#0b8f5d;color:#fff;border-color:#0b8f5d}
+h1{margin:0 0 5px;font-size:25px}.muted{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:18px 0}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:0 2px 8px #14202a08}.metric{font-size:25px;font-weight:800;margin:9px 0 4px}.up{color:var(--green);font-size:12px;font-weight:700}
+.two{display:grid;grid-template-columns:2fr 1fr;gap:14px}.pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stage{border:1px solid var(--line);border-radius:10px;padding:12px;background:#fff}.stage h3{font-size:14px;margin:0 0 5px}.stage.new{background:var(--blue)}.stage.int{background:var(--green2)}.stage.follow{background:var(--yellow)}
+.person{background:#fff;border:1px solid #edf0f2;border-radius:8px;padding:8px;margin-top:7px;font-size:12px}.campaign{line-height:1.5}.campaign button,.primary{background:var(--green);color:#fff;border:0;border-radius:8px;padding:10px 14px;font-weight:700}.outline{background:#fff;border:1px solid var(--line);border-radius:8px;padding:9px 13px}
+.section{margin-top:14px}.brands{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.brandcard{min-height:160px;border-radius:12px;padding:16px;color:white;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,#087d55,#19b77a)}.brandcard.power{background:linear-gradient(135deg,#1f242b,#6c1d24)}.brandcard.add{background:#fff;color:var(--green);border:1px dashed #9bcdb7;align-items:center;justify-content:center}.products{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.product{background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px}.product .pic{height:100px;border-radius:8px;background:#eef3f1;display:grid;place-items:center;font-size:38px}.product strong{display:block;margin-top:10px}.actions{display:flex;gap:8px;margin-top:10px}.actions button{flex:1}
+.toast{position:fixed;right:22px;bottom:22px;background:#17212b;color:#fff;padding:12px 16px;border-radius:9px;display:none}
+@media(max-width:900px){.side{display:none}.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.pipeline{grid-template-columns:repeat(2,1fr)}.brands,.products{grid-template-columns:1fr 1fr}.main{padding:15px}}
+@media(max-width:560px){.grid,.brands,.products{grid-template-columns:1fr}.pipeline{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+<div class="logo"><span class="mark">W</span> Wasim Girnari</div>
+<div class="nav">
+<button class="active" onclick="nav(this,'Overview')">⌂ &nbsp; Overview</button>
+<button onclick="nav(this,'Brands')">◈ &nbsp; Brands</button>
+<button onclick="nav(this,'Products')">▣ &nbsp; Products</button>
+<button onclick="nav(this,'Campaigns')">➤ &nbsp; Campaigns</button>
+<button onclick="nav(this,'Leads')">♙ &nbsp; Leads</button>
+<button onclick="nav(this,'Follow-ups')">◷ &nbsp; Follow-ups</button>
+<button onclick="nav(this,'Social & WhatsApp')">◉ &nbsp; Social + WhatsApp</button>
+<button onclick="nav(this,'Telegram')">✈ &nbsp; Telegram Sales</button>
+<button onclick="nav(this,'Reports')">▥ &nbsp; Reports</button>
+</div>
+</aside>
+<main class="main">
+<div class="top">
+<div><h1>Good Morning, Ragim 👋</h1><div class="muted" id="pageSub">Here’s what’s happening with your brands today.</div></div>
+<div class="brandbar">
+<button class="brand active" onclick="brand(this,'Performax Nutrition')">🥤 Performax Nutrition</button>
+<button class="brand" onclick="brand(this,'PowerMax Fitness')">🏃 PowerMax Fitness</button>
+<button class="brand" onclick="addBrand()">＋ Add Brand</button>
+</div>
+</div>
+
+<div class="grid">
+<div class="card"><div class="muted">Total Leads</div><div class="metric">2,000</div><span class="up">↑ 12%</span></div>
+<div class="card"><div class="muted">New Leads</div><div class="metric">186</div><span class="up">↑ 18%</span></div>
+<div class="card"><div class="muted">Interested</div><div class="metric">74</div><span class="up">↑ 24%</span></div>
+<div class="card"><div class="muted">Follow-ups</div><div class="metric">32</div><span class="up">↑ 10%</span></div>
+<div class="card"><div class="muted">Purchased</div><div class="metric">18</div><span class="up">↑ 6%</span></div>
+</div>
+
+<div class="two">
+<section class="card"><h2>Lead Pipeline</h2><div class="muted">Track customers from enquiry to purchase.</div><div class="pipeline section">
+<div class="stage new"><h3>New · 1,452</h3><div class="person">Amit Sharma<br><span class="muted">2 min ago</span></div><div class="person">Priya Verma<br><span class="muted">5 min ago</span></div></div>
+<div class="stage int"><h3>Interested · 74</h3><div class="person">Sneha Patel<br><span class="muted">12 min ago</span></div><div class="person">Karan Mehta<br><span class="muted">18 min ago</span></div></div>
+<div class="stage follow"><h3>Follow-up · 32</h3><div class="person">Vikas Yadav<br><span class="muted">1 hr ago</span></div><div class="person">Anjali Gupta<br><span class="muted">2 hr ago</span></div></div>
+<div class="stage" style="background:#e9f8ef"><h3>Purchased · 18</h3><div class="person">Pooja Sharma<br><span class="muted">5 hr ago</span></div><div class="person">Arjun Das<br><span class="muted">6 hr ago</span></div></div>
+</div></section>
+
+<section class="card"><h2>Latest Campaign</h2><div class="campaign"><b>WhatsApp Campaign</b> <span class="up">ACTIVE</span><p class="muted">Brand: Performax Nutrition</p><p>“Fuel your goals with Performax! Get 20% OFF on selected products.”</p><div class="grid" style="grid-template-columns:repeat(3,1fr);margin:10px 0"><div><b>2,000</b><br><span class="muted">Contacts</span></div><div><b>1,842</b><br><span class="muted">Delivered</span></div><div><b>156</b><br><span class="muted">Replied</span></div></div><button class="primary" onclick="send()">Send Campaign</button> <button class="outline" onclick="results()">Results</button></div></section>
+</div>
+
+<section class="section card">
+<h2>Social → WhatsApp & Telegram</h2>
+<div class="muted">Connect your marketing channels and send customers to the right sales chat.</div>
+<div class="brands section">
+<div class="brandcard" style="background:linear-gradient(135deg,#833ab4,#e1306c)"><div><b>📸 Instagram</b><p>Reels & posts → WhatsApp</p></div><button class="outline" onclick="connect('Instagram')">Connect</button></div>
+<div class="brandcard" style="background:linear-gradient(135deg,#1877f2,#4267b2)"><div><b>📘 Facebook</b><p>Page & ads → WhatsApp</p></div><button class="outline" onclick="connect('Facebook')">Connect</button></div>
+<div class="brandcard" style="background:linear-gradient(135deg,#ff0000,#b00000)"><div><b>▶️ YouTube</b><p>Videos → WhatsApp / Telegram</p></div><button class="outline" onclick="connect('YouTube')">Connect</button></div>
+</div>
+<div class="card section" style="background:#f0f7ff;border-color:#cfe2ff">
+<b>✈️ Telegram Business Sales Link</b>
+<p class="muted">Put your Telegram sales link in your bio, videos, product pages and campaigns.</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<input id="tg" value="https://t.me/yourbusiness" style="flex:1;min-width:220px;padding:10px;border:1px solid #d8e0e8;border-radius:8px">
+<button class="primary" onclick="copyTG()">Copy Link</button>
+<button class="outline" onclick="openTG()">Open Telegram</button>
+</div>
+</div>
+</section>
+
+<section class="section card"><h2>Our Brands</h2><div class="muted">Manage brands, products and campaigns.</div><div class="brands section">
+<div class="brandcard"><div><b>🥤 Performax Nutrition</b><p>Better Nutrition. Bigger You.</p></div><button class="outline" onclick="toast('Opening Performax')">Manage Brand →</button></div>
+<div class="brandcard power"><div><b>🏃 PowerMax Fitness</b><p>Stronger Every Day.</p></div><button class="outline" onclick="toast('Opening PowerMax')">Manage Brand →</button></div>
+<div class="brandcard add" onclick="addBrand()">＋<b>Add New Brand</b><span class="muted">Start marketing your next brand</span></div>
+</div></section>
+
+<section class="section card"><h2>Popular Products</h2><div class="muted">Share products and generate WhatsApp enquiries.</div><div class="products section">
+<div class="product"><div class="pic">🥤</div><strong>Performax Whey Protein 2kg</strong><span class="muted">₹4,999 · In Stock</span><div class="actions"><button class="outline">Details</button><button class="primary" onclick="toast('WhatsApp share ready')">WhatsApp</button></div></div>
+<div class="product"><div class="pic">🧪</div><strong>Creatine Monohydrate</strong><span class="muted">₹1,499 · In Stock</span><div class="actions"><button class="outline">Details</button><button class="primary" onclick="toast('WhatsApp share ready')">WhatsApp</button></div></div>
+<div class="product"><div class="pic">🏃</div><strong>PowerMax Treadmill T-1000</strong><span class="muted">₹45,000 · In Stock</span><div class="actions"><button class="outline">Details</button><button class="primary" onclick="toast('WhatsApp share ready')">WhatsApp</button></div></div>
+<div class="product"><div class="pic">🏋️</div><strong>PowerMax Dumbbell Set</strong><span class="muted">₹6,999 · In Stock</span><div class="actions"><button class="outline">Details</button><button class="primary" onclick="toast('WhatsApp share ready')">WhatsApp</button></div></div>
+</div></section>
+</main></div>
+<div class="toast" id="toast"></div>
+<script>
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',1800)}
+function brand(b,n){document.querySelectorAll('.brand').forEach(x=>x.classList.remove('active'));b.classList.add('active');toast('Brand selected: '+n)}
+function addBrand(){const n=prompt('Enter new brand name:');if(n)toast('Brand added: '+n)}
+function send(){toast('Campaign screen opened — connect WhatsApp Business to send')}
+function results(){toast('Campaign results opened')}
+function nav(b,n){document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById('pageSub').textContent=n+' section selected — prototype navigation'}
+function connect(n){toast(n+' connection setup opened')}
+function copyTG(){navigator.clipboard?.writeText(document.getElementById('tg').value);toast('Telegram link copied')}
+function openTG(){window.open(document.getElementById('tg').value,'_blank')}
+</script>
+</body></html>
